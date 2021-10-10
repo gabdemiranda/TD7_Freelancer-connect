@@ -1,0 +1,18 @@
+<div>
+<h1>
+  <%= @project.title %>
+</h1>
+<h2><%= @project.description %></h2>
+<dl>
+  <dt>Data limite:</dt>
+  <dd><%= @project.end_date %></dd>
+  <dt>Atuação</dt>
+  <dd><%= @project.work_style %></dd>
+  <dt>Habilidades desejadas:</dt>
+  <dd><%= @project.skills %></dd>
+  <dt>Valor máximo por hora:</dt>
+  <dd><%= number_to_currency(@project.value, unit: 'R$', separator: ',', format: "%u %n") %></dd>
+</dl>
+
+</div>
+<%= link_to('Voltar', root_path) %>
