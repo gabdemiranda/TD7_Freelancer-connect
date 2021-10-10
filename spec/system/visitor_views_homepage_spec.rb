@@ -9,6 +9,7 @@ describe "Visitor visits homepage" do
   expect(page).to have_content("Contrate o melhor profissional para sua necessidade!")
   
   end
+
   it 'and views available projects' do
     Project.create!({ title: 'Site para cadastro de imóveis',
                     description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
@@ -21,7 +22,14 @@ describe "Visitor visits homepage" do
     visit root_path
     
     expect(page).to have_content("Site para cadastro de imóveis")
-    expect(page).to have_content("Valor máximo por hora: 50 reais")
+    expect(page).to have_content("Valor máximo por hora: 50.0 reais")
     expect(page).to have_content("Habilidades desejadas: Ruby on Rails")
+  end
+
+  it 'warns user if there are not any projects available' do
+
+    visit root_path
+
+    expect(page).to have_content("Nenhum projeto disponível")
   end
 end

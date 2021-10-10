@@ -1,2 +1,8 @@
 <h1>Freelancer Connect</h1>
 <h3>Contrate o melhor profissional para sua necessidade!</h3>
+
+<% if @projects.empty? %>
+  <h2><%= "Nenhum projeto disponível" %></h2>
+<% else %>
+  <%= render "partial_shared/preview", project: @projects%>
+<% end %>
