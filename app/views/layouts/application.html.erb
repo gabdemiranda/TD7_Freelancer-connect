@@ -12,7 +12,13 @@
 
   <body>
     <nav>
-      <p><%= link_to "Entrar", new_regular_user_session_path %></p>
+      <% if regular_user_signed_in? %>
+        <p><%= link_to 'Cadastrar projeto', new_project_path %></p>
+        <p><%= current_regular_user.email %></p>
+        <p><%= link_to 'Logout', destroy_regular_user_session_path, method: :delete %>
+      <% else %>
+        <p><%= link_to "Entrar", new_regular_user_session_path %></p>
+      <% end %>
     </nav>
   <p><%= notice %></p>
   <p><%= alert %></p>

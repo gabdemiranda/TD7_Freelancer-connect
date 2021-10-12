@@ -6,7 +6,7 @@ describe 'Visitor registers new project' do
 
     login_as regular_user, scope: :regular_user
     visit root_path
-    click_on 'Cadastrar Projeto'
+    click_on 'Cadastrar projeto'
 
     fill_in 'Título', with: 'Site de lançamentos espaciais'
     fill_in 'Descrição', with: 'Site que armazena dados de lançamentos espaciais'
