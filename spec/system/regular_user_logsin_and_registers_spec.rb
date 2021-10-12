@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-context 'as regular user' do
+describe 'as regular user' do
   it 'successfully' do
     regular_user = RegularUser.create!(email: 'janice@teste.com.br', password: '123456789')
 
     visit root_path
-    click_on 'Entrar'
+    click_on 'Entrar como usuário'
     fill_in 'Email', with: regular_user.email
     fill_in 'Senha', with: regular_user.password
     within 'form' do
@@ -31,6 +31,18 @@ context 'as regular user' do
     expect(page).to_not have_link('Logout')
     expect(page).to have_link('Entrar')
     expect(page).to_not have_link('Cadastrar projeto')
+  end
+
+  it 'and must fill all information' do
+    visit root_path
+    click_on 'Entrar como usuário'
+    fill_in 'Email', with: ''
+    fill_in 'Senha', with: ''
+    within 'form' do
+      click_on 'Entrar'
+    end
+
+    expect(page).to have_content('Email ou senha inválida.')
   end
 
 end

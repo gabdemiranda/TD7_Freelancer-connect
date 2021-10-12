@@ -1,8 +1,9 @@
 ---
 pt-BR:
-  activerecord:
+  activerecord:    
     models:
       regular_user: 'Usuário'
     attributes:
       regular_user:
         password: 'Senha'
+      
