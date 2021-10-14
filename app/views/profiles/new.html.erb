@@ -1,0 +1,11 @@
+<h1>Cadastrar perfil</h1>
+
+<%= form_with(model: @profile) do |f| %>
+<div><%= f.label :fullname %> <%= f.text_field :title %></div>
+<div><%= f.label :socialname %> <%= f.text_field :description %></div>
+<div><%= f.label :birthdate %> <%= f.date_field :end_date %></div>
+<div><%= f.label :education %> <%= f.text_field :skills %></div>
+<div><%= f.label :experience %> <%= f.text_field :value %></div>
+<div><%= f.label :description %> <%= f.text_field :work_style %></div>
+<%= f.submit 'Enviar' %> 
+<% end %>

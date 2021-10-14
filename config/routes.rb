@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'my_profile', to: 'users#my_profile'
   resources :projects, only: [:show, :new, :create]
+  resources :profiles, only: [:show, :new, :create]
 end
