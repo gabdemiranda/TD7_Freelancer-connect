@@ -1,6 +1,12 @@
 <h1>Freelancer Connect</h1>
 <h3>Contrate o melhor profissional para sua necessidade!</h3>
 
+<%= form_with url: search_path, method: :get do %>
+  <%= label_tag :q, 'Pesquisar projetos:' %>
+  <%= text_field_tag :q %>
+  <%= submit_tag 'Pesquisar' %>
+<% end %>
+
 <% if @projects.empty? %>
   <h2><%= "Nenhum projeto disponível" %></h2>
 <% else %>

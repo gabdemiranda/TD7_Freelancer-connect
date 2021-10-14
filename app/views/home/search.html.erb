@@ -1,0 +1,11 @@
+<h1>Resultados da pesquisa:</h1>
+<ul>
+  <% @projects.each do |project| %>
+    <h2><%= link_to project.title, project %></h2>
+    <h3><%= project.description %></h3>
+    <h3> Valor máximo por hora: <%= project.value %> reais </h3>
+    <h3> Habilidades desejadas: <%= project.skills %></h3>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Voltar', root_path %></p>
