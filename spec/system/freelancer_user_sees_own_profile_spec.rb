@@ -7,13 +7,13 @@ describe 'Freelancer user sees profile page' do
                              description: 'Fullstack dev', education: 'Formado em sistemas de informação',
                              birthdate: '14/06/1996', experience: 'Três anos trabalhando na Rebase'
                              )
-    visit root_path
     login_as freelanceruser, scope: :freelancer_user
+    visit root_path
     click_on 'Meu perfil'
 
     expect(page).to have_content('Meu perfil')
     expect(page).to have_content('teste@freelancer.com.br')
-    expect(current_path).to eq my_profile_path
+    expect(current_path).to eq show_profile_path
   end
 
   it 'fill in profile info' do
@@ -30,7 +30,7 @@ describe 'Freelancer user sees profile page' do
     fill_in 'Experiência', with: '3 anos de Ruby on Rails'
     click_on 'Enviar'
 
-    expect(page).to have_content('Perfil atualizado')
+    expect(page).to have_content('Perfil criado!')
     expect(page).to have_content('Freelancer primeiro')
     expect(page).to have_content('Freelancxr')
     expect(page).to have_content('1996-06-14')

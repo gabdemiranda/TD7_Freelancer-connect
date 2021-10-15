@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
-  def show
-    @profile = Profile.find(1)
+  def show_profile
+    @profile = Profile.find(current_freelancer_user[:id])
   end
 
   def new
@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.freelancer_user = current_freelancer_user
     if @profile.save
-      redirect_to [@profile], notice: 'Perfil atualizado'
+      redirect_to show_profile_path, notice: 'Perfil criado!'
     else
       render :new
     end
@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
 
   private
 
-  def profile_params 
-    params.require(:profile).permit( :fullname, :socialname, :birthdate, :education, :description, :experience )
+  def profile_params
+    params.require(:profile).permit(:fullname, :socialname, :birthdate, :education, :description, :experience)
   end
 end
