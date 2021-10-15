@@ -4,6 +4,7 @@ class FreelancerUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :profile
-  has_many :proposals
   accepts_nested_attributes_for :profile
+  has_many :proposals
+  has_many :projects, through: :proposals
 end

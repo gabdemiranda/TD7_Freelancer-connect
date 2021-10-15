@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.regular_user = current_regular_user
     if @project.save
       redirect_to @project
     else
