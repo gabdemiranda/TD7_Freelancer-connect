@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'show_profile', to: 'profiles#show_profile'
   resources :projects, only: [:show, :new, :create]
   resources :profiles, only: [:show, :new, :create]
+  resources :proposals, only: [:new]
 end

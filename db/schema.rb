@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_180815) do
+ActiveRecord::Schema.define(version: 2021_10_15_025638) do
 
   create_table "freelancer_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 2021_10_14_180815) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "proposals", force: :cascade do |t|
+    t.string "reason"
+    t.decimal "value"
+    t.integer "available_time"
+    t.date "expected_end"
+    t.integer "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_proposals_on_project_id"
+  end
+
   create_table "regular_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,4 +84,5 @@ ActiveRecord::Schema.define(version: 2021_10_14_180815) do
   end
 
   add_foreign_key "profiles", "freelancer_users"
+  add_foreign_key "proposals", "projects"
 end
