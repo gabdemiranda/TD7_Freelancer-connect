@@ -1,18 +1,8 @@
-<div>
-<h1>
-  <%= @project.title %>
-</h1>
-<h2><%= @project.description %></h2>
-<dl>
-  <dt>Data limite:</dt>
-  <dd><%= @project.end_date %></dd>
-  <dt>Atuação</dt>
-  <dd><%= @project.work_style %></dd>
-  <dt>Habilidades desejadas:</dt>
-  <dd><%= @project.skills %></dd>
-  <dt>Valor máximo por hora:</dt>
-  <dd><%= number_to_currency(@project.value, unit: 'R$', separator: ',', format: "%u %n") %></dd>
-</dl>
 
-</div>
-<%= link_to('Voltar', root_path) %>
+<h3><%= @project.title %></h3>
+<p>Descrição: <%= @project.description %></p>
+<p>Habilidades desejadas: <%= @project.skills %></p>
+<p>Data limite: <%= @project.end_date %></p>
+<p>Atuação <%= @project.work_style %></p>
+<p>Valor máximo por hora: R$ <%= @project.value %> reais</p>
+<%= link_to('Voltar', root_path) %> <%= link_to('Fazer proposta', new_proposal_path) if freelancer_user_signed_in? %> 

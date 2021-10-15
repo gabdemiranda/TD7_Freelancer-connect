@@ -20,7 +20,7 @@ describe 'Regular user registers new project' do
     expect(page).to have_content('Site que armazena dados de lançamentos espaciais')
     expect(page).to have_content("Habilidades desejadas: Ruby on Rails")
     expect(page).to have_content("Atuação Presencial")
-    expect(page).to have_content("Valor máximo por hora: R$ 80,00")
+    expect(page).to have_content("Valor máximo por hora: R$ 80.0")
     expect(page).to have_content("Data limite")
   end
 

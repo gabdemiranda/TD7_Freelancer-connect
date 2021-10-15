@@ -50,7 +50,7 @@ describe "Visitor visits homepage" do
     expect(page).to have_content("Preciso de um site que cadastre imóveis de vários tipos e em várias locações")
     expect(page).to have_content("Data limite: 2021-11-10")
     expect(page).to have_content("Atuação Remota")
-    expect(page).to have_content("Valor máximo por hora: R$ 50,00")
+    expect(page).to have_content("Valor máximo por hora: R$ 50.0")
     expect(page).to have_content("Habilidades desejadas: Ruby on Rails")
   end
 
