@@ -1,6 +1,8 @@
 <% project.each do |project| %>
-  <h2><%= link_to project.title, project %></h2>
-  <h3><%= project.description %></h3>
-  <h3> Valor máximo por hora: <%= project.value %> reais </h3>
-  <h3> Habilidades desejadas: <%= project.skills %></h3>
+  <h3><%= project.title %></h3>
+  <p>Descrição: <%= project.description %></p>
+  <p>Valor máximo por hora: R$ <%= project.value %> reais</p>
+  <p>Habilidades desejadas: <%= project.skills %></p>
+  <p><%= link_to "Ir para o projeto", project %></p>
+  <hr>
 <% end %> 
