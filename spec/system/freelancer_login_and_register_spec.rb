@@ -15,7 +15,7 @@ describe 'Freelancer logs in' do
       expect(page).to have_content('Login efetuado com sucesso.')
       expect(page).to have_content(freelancer.email)
       expect(page).to have_link('Logout')
-      expect(page).to have_link('Cadastrar projeto')
+      expect(page).to have_link('Complete seu perfil')
     end
 
     it 'and must fill all information' do
@@ -53,7 +53,7 @@ describe 'Freelancer logs in' do
       fill_in 'Confirme sua senha', with: '123sd456'
       click_button 'Registrar'
   
-      expect(page).to have_content('Você realizou seu registro com sucesso')
+      expect(page).to have_content('Bem vindo! Você realizou seu registro com sucesso.')
     end
 
     it 'fails to register with empty fields' do

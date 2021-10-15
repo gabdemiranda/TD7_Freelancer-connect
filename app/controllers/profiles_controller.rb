@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
   def show
-    id = params[:id]
-    @profile = Profile.find(id)
+    @profile = Profile.find(params[:id])
   end
 
   def new
@@ -10,8 +9,9 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.freelancer_user = current_freelancer_user
     if @profile.save
-      redirect_to @profile
+      redirect_to [@profile], notice: 'Perfil atualizado'
     else
       render :new
     end

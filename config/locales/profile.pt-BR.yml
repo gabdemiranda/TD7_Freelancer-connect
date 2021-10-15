@@ -6,7 +6,7 @@ pt-BR:
     attributes:
       profile:
         fullname: 'Nome completo'
-        socialname: 'Nome Social'
+        socialname: 'Nome social'
         birthdate: 'Data de nascimento'
         education: 'Formação'
         description: 'Descrição'

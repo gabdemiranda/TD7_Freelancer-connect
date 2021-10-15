@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "user searches for keywords" do
+describe "freelancer searches for keywords" do
   it 'successfully' do
     Project.create!({ title: 'Site para cadastro de imóveis',
       description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
@@ -16,7 +16,9 @@ describe "user searches for keywords" do
       end_date: '10/12/2021',
       work_style: 'Presencial'
       })
-  
+    freelanceruser = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')
+
+    login_as freelanceruser, scope: :freelancer_user
     visit root_path
     fill_in "Pesquisar projetos:", with: "Aplicação para celular"
     click_on "Pesquisar"

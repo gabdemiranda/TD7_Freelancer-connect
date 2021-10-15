@@ -1,0 +1,7 @@
+<h1><%= @profile.fullname %></h1>
+<h3><%= "#{@profile.class.human_attribute_name(:socialname)}: #{@profile.socialname}" %></h3>
+<h3><%= "#{@profile.class.human_attribute_name(:birthdate)}: #{(@profile.birthdate)}" %></h3>
+<h3><%= "#{@profile.class.human_attribute_name(:education)}: #{@profile.education}" %></h3>
+<h3><%= "#{@profile.class.human_attribute_name(:description)}: #{@profile.description}" %></h3>
+<h3><%= "#{@profile.class.human_attribute_name(:experience)}: #{@profile.experience}" %></h3>
+<%= link_to "Voltar", root_path %> 
