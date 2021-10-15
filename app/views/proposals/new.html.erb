@@ -1,0 +1,19 @@
+<%= form_with model: [@project, @proposal] do |f| %>
+  <div>
+    <%= f.label :reason, 'Por que você quer trabalhar nesse projeto?' %>
+    <%= f.text_field :reason %>
+  </div>
+  <div>
+    <%= f.label :value, 'Proposta de valor/hora' %>
+    <%= f.number_field :value %>
+  </div>
+  <div>
+    <%= f.label :available_time, 'Horas disponíveis por semana' %>
+    <%= f.number_field :available_time %>
+  </div>
+  <div>
+    <%= f.label :expected_end, 'Expectativa de conclusão do projeto' %>
+    <%= f.date_field :expected_end %>
+  </div>
+  <%= f.submit 'Enviar' %>
+<% end %>

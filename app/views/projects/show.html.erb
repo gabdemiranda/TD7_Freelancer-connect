@@ -5,4 +5,4 @@
 <p>Data limite: <%= @project.end_date %></p>
 <p>Atuação <%= @project.work_style %></p>
 <p>Valor máximo por hora: R$ <%= @project.value %> reais</p>
-<%= link_to('Voltar', root_path) %> <%= link_to('Fazer proposta', new_proposal_path) if freelancer_user_signed_in? %> 
+<%= link_to('Voltar', root_path) %> <%= link_to('Fazer proposta', new_project_proposal_path(@project)) if freelancer_user_signed_in? %> 

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'search', to: "home#search"
   get 'show_profile', to: 'profiles#show_profile'
-  resources :projects, only: [:show, :new, :create]
+  resources :projects, only: [:show, :new, :create] do 
+    resources :proposals, only: [:show, :new, :create], shallow: true
+  end
   resources :profiles, only: [:show, :new, :create]
-  resources :proposals, only: [:new]
+  
 end

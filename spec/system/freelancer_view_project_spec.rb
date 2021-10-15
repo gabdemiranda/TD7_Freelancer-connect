@@ -87,7 +87,10 @@ describe 'as a Freelancer I can' do
     click_on 'Ir para o projeto'
     click_on 'Fazer proposta'
 
-    expect(current_path).to eq new_proposal_path
+    expect(page).to have_content('Por que você quer trabalhar nesse projeto?')
+    expect(page).to have_content('Proposta de valor/hora')
+    expect(page).to have_content('Horas disponíveis por semana')
+    expect(page).to have_content('Expectativa de conclusão do projeto')
   end
 
 end
