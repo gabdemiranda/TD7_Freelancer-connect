@@ -12,10 +12,14 @@ describe 'as a Freelancer I can' do
       regular_user_id: 1
       })
     freelancer_user = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')  
-    profile = Profile.create!(freelancer_user_id: freelancer_user.id, fullname: 'Gabriela Martins', socialname: 'Fernando Martins',
-      description: 'Fullstack dev', education: 'Formado em sistemas de informação',
-      birthdate: '14/06/1996', experience: 'Três anos trabalhando na Rebase'
-      )
+    profile = Profile.create!(freelancer_user_id: freelancer_user.id, 
+                fullname: 'Gabriela Martins', 
+                socialname: 'Fernando Martins',
+                description: 'Fullstack dev', 
+                education: 'Formado em sistemas de informação',
+                birthdate: '14/06/1996', 
+                experience: 'Três anos trabalhando na Rebase'
+                )
 
     login_as freelancer_user, scope: :freelancer_user
     visit root_path
