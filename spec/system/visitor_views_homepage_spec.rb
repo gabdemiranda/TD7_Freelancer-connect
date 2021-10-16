@@ -11,12 +11,14 @@ describe "Visitor visits homepage" do
   end
 
   it 'and views available projects' do
+    regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy') 
     Project.create!({ title: 'Site para cadastro de imóveis',
                     description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
                     skills: 'Ruby on Rails',
                     value: 50,
                     end_date: '10/11/2021',
-                    work_style: 'Remota'
+                    work_style: 'Remota',
+                    regular_user_id: 1
                     })
 
     visit root_path
@@ -35,12 +37,14 @@ describe "Visitor visits homepage" do
   end
 
   it 'and shows all the information when user clicks on the project' do
+    regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy') 
     Project.create!({ title: 'Site para cadastro de imóveis',
       description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
       skills: 'Ruby on Rails',
       value: 50,
       end_date: '10/11/2021',
-      work_style: 'Remota'
+      work_style: 'Remota',
+      regular_user_id: 1
       })
 
     visit root_path
@@ -55,12 +59,14 @@ describe "Visitor visits homepage" do
   end
 
   it 'and view property details and return to home page' do
+    regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy') 
     Project.create!({ title: 'Site para cadastro de imóveis',
       description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
       skills: 'Ruby on Rails',
       value: 50,
       end_date: '10/11/2021',
-      work_style: 'Remota'
+      work_style: 'Remota',
+      regular_user_id: 1
       })
 
     visit root_path

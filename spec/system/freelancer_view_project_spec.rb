@@ -2,12 +2,14 @@ require 'rails_helper'
 
 describe 'as a Freelancer I can' do
   it 'see project detais' do
+    regularuser = RegularUser.create!(email: 'tom@user.com.br', password: '123456')
     Project.create!({ title: 'Site para cadastro de imóveis',
       description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
       skills: 'Ruby on Rails',
       value: 50,
       end_date: '10/11/2021',
-      work_style: 'Remota'
+      work_style: 'Remota',
+      regular_user_id: 1
       })
     freelancer_user = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')  
     profile = Profile.create!(freelancer_user_id: freelancer_user.id, fullname: 'Gabriela Martins', socialname: 'Fernando Martins',
@@ -29,13 +31,15 @@ describe 'as a Freelancer I can' do
 
   context 'see buttons to' do
     before do
+      regularuser = RegularUser.create!(email: 'tom@user.com.br', password: '123456')
       Project.create!( 
         title: 'Site para cadastro de imóveis',
         description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
         skills: 'Ruby on Rails',
         value: 50,
         end_date: '10/11/2021',
-        work_style: 'Remota'
+        work_style: 'Remota',
+        regular_user_id: 1
       )
       freelancer_user = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')  
       profile = Profile.create!(
@@ -63,13 +67,15 @@ describe 'as a Freelancer I can' do
   end
 
   it 'make a proposal' do
+    regularuser = RegularUser.create!(email: 'tom@user.com.br', password: '123456')
     Project.create!( 
       title: 'Site para cadastro de imóveis',
       description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
       skills: 'Ruby on Rails',
       value: 50,
       end_date: '10/11/2021',
-      work_style: 'Remota'
+      work_style: 'Remota',
+      regular_user_id: 1
     )
     freelancer_user = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')  
     profile = Profile.create!(

@@ -2,14 +2,15 @@ require 'rails_helper'
 
 describe 'as a regular user I can' do
   it 'see project detais' do
+    regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy') 
     Project.create!({ title: 'Site para cadastro de imóveis',
       description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
       skills: 'Ruby on Rails',
       value: 50,
       end_date: '10/11/2021',
-      work_style: 'Remota'
-      })
-    regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy')  
+      work_style: 'Remota',
+      regular_user_id: 1
+      }) 
 
     login_as regular_user, scope: :regular_user
     visit root_path
@@ -29,15 +30,16 @@ describe 'as a regular user I can' do
     end
 
     it 'see button to return to root path' do
+      regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy')
       Project.create!( 
         title: 'Site para cadastro de imóveis',
         description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
         skills: 'Ruby on Rails',
         value: 50,
         end_date: '10/11/2021',
-        work_style: 'Remota'
-      )
-      regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy')  
+        work_style: 'Remota',
+        regular_user_id: 1
+      )  
 
       login_as regular_user, scope: :regular_user
       visit root_path
@@ -47,16 +49,17 @@ describe 'as a regular user I can' do
     end
 
     it 'cannot see button to go to proposal' do
+      regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy')
       Project.create!( 
         title: 'Site para cadastro de imóveis',
         description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
         skills: 'Ruby on Rails',
         value: 50,
         end_date: '10/11/2021',
-        work_style: 'Remota'
+        work_style: 'Remota',
+        regular_user_id: 1
       )
-      regular_user = RegularUser.create!(email: 'regular@teste.com.br', password: '1234tyy')  
-
+      
       login_as regular_user, scope: :regular_user
       visit root_path
       click_on 'Ir para o projeto'
