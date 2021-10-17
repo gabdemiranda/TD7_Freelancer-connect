@@ -1,0 +1,10 @@
+<h1>Minhas Propostas</h1>
+<hr>
+<% @proposals.each do |proposal| %>
+  <h3><%= proposal.reason %></h3>
+  <p>Descrição: <%= proposal.value %></p>
+  <p>Valor máximo por hora: R$ <%= proposal.available_time %> reais</p>
+  <p>Habilidades desejadas: <%= proposal.expected_end %></p>
+  <p><%= link_to "Ir para o projeto", proposal %></p>
+  <hr>
+<% end %> 

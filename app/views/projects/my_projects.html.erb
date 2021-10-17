@@ -1,0 +1,16 @@
+<h1>Meus Projetos</h1>
+<hr>
+<% if @projects.empty? %>
+    <div>
+        <h3>Nenhum projeto enviado.</h3><br>
+    </div>
+<% end %>
+<% @projects.each do |project|%>
+    <h3><%= project.title %></h3>
+    <p>Descrição: <%= project.description %></p>
+    <p>Habilidades desejadas: <%= project.skills %></p>
+    <p>Data limite: <%= project.end_date %></p>
+    <p>Atuação <%= project.work_style %></p>
+    <p>Valor máximo por hora: R$ <%= project.value %> reais</p>
+    <hr>
+<% end %>

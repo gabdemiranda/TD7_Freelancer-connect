@@ -1,4 +1,9 @@
 class ProposalsController < ApplicationController
+  def index
+    @user = FreelancerUser.find(session[:freelancer_user_id])
+    @proposals = @user.proposals
+  end
+
   def new
     @proposal = Proposal.new
     @project = Project.find(params[:project_id])

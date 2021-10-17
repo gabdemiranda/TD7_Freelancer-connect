@@ -19,7 +19,7 @@ describe 'as a Freelancer I can' do
 
     login_as freelancer_user, scope: :freelancer_user
     visit root_path
-    click_on 'Ir para o projeto'
+    click_on 'Site para cadastro de imóveis'
 
     expect(page).to have_content("Site para cadastro de imóveis")
     expect(page).to have_content("Preciso de um site que cadastre imóveis de vários tipos e em várias locações")
@@ -54,7 +54,7 @@ describe 'as a Freelancer I can' do
 
       login_as freelancer_user, scope: :freelancer_user
       visit root_path
-      click_on 'Ir para o projeto'
+      click_on 'Site para cadastro de imóveis'
     end
 
     it 'return to root path' do
@@ -90,7 +90,7 @@ describe 'as a Freelancer I can' do
 
     login_as freelancer_user, scope: :freelancer_user
     visit root_path
-    click_on 'Ir para o projeto'
+    click_on 'Site para cadastro de imóveis'
     click_on 'Fazer proposta'
 
     expect(page).to have_content('Por que você quer trabalhar nesse projeto?')

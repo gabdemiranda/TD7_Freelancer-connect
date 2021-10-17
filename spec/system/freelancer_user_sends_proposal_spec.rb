@@ -23,7 +23,7 @@ describe 'as a Freelancer I can' do
 
     login_as freelancer_user, scope: :freelancer_user
     visit root_path
-    click_on 'Ir para o projeto'
+    click_on 'Site para cadastro de imóveis'
     click_on 'Fazer proposta'
     fill_in 'Por que você quer trabalhar nesse projeto?', with: 'Porque entendo dessa linguagem'
     fill_in 'Proposta de valor/hora', with: 50

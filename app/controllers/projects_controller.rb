@@ -3,6 +3,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def my_projects
+    @projects = current_regular_user.projects
+  end
+
   def new
     @project = Project.new
   end

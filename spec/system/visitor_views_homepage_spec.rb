@@ -48,7 +48,7 @@ describe "Visitor visits homepage" do
       })
 
     visit root_path
-    click_on "Ir para o projeto"
+    click_on "Site para cadastro de imóveis"
 
     expect(page).to have_content("Site para cadastro de imóveis")
     expect(page).to have_content("Preciso de um site que cadastre imóveis de vários tipos e em várias locações")
@@ -70,7 +70,7 @@ describe "Visitor visits homepage" do
       })
 
     visit root_path
-    click_on 'Ir para o projeto'
+    click_on 'Site para cadastro de imóveis'
     click_on 'Voltar'
 
     expect(current_path).to eq root_path
