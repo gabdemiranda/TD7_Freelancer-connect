@@ -37,4 +37,28 @@ describe 'as a Freelancer I can' do
     expect(page).to have_content('Horas disponíveis por semana')
     expect(page).to have_content('Expectativa de conclusão do projeto')
   end
+
+  it 'not send a proposal unless I fill my profile' do
+    regularuser = RegularUser.create!(email: 'tom@user.com.br', password: '123456')
+    Project.create!({ title: 'Site para cadastro de imóveis',
+      description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
+      skills: 'Ruby on Rails',
+      value: 50,
+      end_date: '10/11/2021',
+      work_style: 'Remota',
+      regular_user_id: 1
+      })
+    freelancer_user = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')  
+
+    login_as freelancer_user, scope: :freelancer_user
+    visit root_path
+    click_on 'Site para cadastro de imóveis'
+
+    expect(page).to have_content('Site para cadastro de imóveis')
+    expect(page).to have_content('Preciso de um site que cadastre imóveis de vários tipos e em várias locações')
+    expect(page).to have_content('Ruby on Rails')
+    expect(page).to have_content('Remota')
+    expect(page).to have_content('Complete seu perfil para fazer propostas')
+    expect(page).to_not have_content('Fazer proposta')
+  end
 end

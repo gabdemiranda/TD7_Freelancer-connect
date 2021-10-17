@@ -17,4 +17,6 @@
     <hr>
   <% end %>
 <% end %>
-<%= link_to('Voltar', root_path) %> <%= link_to('Fazer proposta', new_project_proposal_path(@project)) if freelancer_user_signed_in? %> 
+<%= link_to('Voltar', root_path) %> 
+<%= link_to('Fazer proposta', new_project_proposal_path(@project)) if freelancer_user_signed_in? && current_freelancer_user.profile %>
+<%= link_to('Complete seu perfil para fazer propostas', new_profile_path) if freelancer_user_signed_in? && current_freelancer_user.profile.nil? %>
