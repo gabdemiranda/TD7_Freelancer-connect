@@ -4,4 +4,17 @@
 <p>Data limite: <%= @project.end_date %></p>
 <p>Atuação <%= @project.work_style %></p>
 <p>Valor máximo por hora: R$ <%= @project.value %> reais</p>
+<hr>
+<%if regular_user_signed_in? %>
+  <h4>Propostas:</h4>
+  <hr>
+  <% @project.proposals.each do |proposal| %>
+    <h3>Proposta de <%= link_to proposal.freelancer_user.profile.socialname, show_profile_path(proposal.freelancer_user.profile) %></h3>
+    <p>Razão para trabalhar nesse projeto: <%= proposal.reason %></p>
+    <p>Proposta de valor/hora: R$ <%= proposal.value %></p>
+    <p>Horas disponíveis por semana: <%= proposal.available_time %> horas</p>
+    <p>Expectativa de conclusão do projeto: <%= proposal.expected_end %></p>
+    <hr>
+  <% end %>
+<% end %>
 <%= link_to('Voltar', root_path) %> <%= link_to('Fazer proposta', new_project_proposal_path(@project)) if freelancer_user_signed_in? %> 
