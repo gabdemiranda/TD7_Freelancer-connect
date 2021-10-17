@@ -1,7 +1,6 @@
 class ProposalsController < ApplicationController
   def index
-    @user = FreelancerUser.find(session[:freelancer_user_id])
-    @proposals = @user.proposals
+    @proposals = Proposal.where(freelancer_user: current_freelancer_user)
   end
 
   def new

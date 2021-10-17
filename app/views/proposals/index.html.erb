@@ -1,10 +1,15 @@
 <h1>Minhas Propostas</h1>
 <hr>
+<% if @proposals.empty? %>
+    <div>
+        <h3>Nenhuma proposta enviada.</h3><br>
+    </div>
+<% end %>
 <% @proposals.each do |proposal| %>
-  <h3><%= proposal.reason %></h3>
-  <p>Descrição: <%= proposal.value %></p>
-  <p>Valor máximo por hora: R$ <%= proposal.available_time %> reais</p>
-  <p>Habilidades desejadas: <%= proposal.expected_end %></p>
-  <p><%= link_to "Ir para o projeto", proposal %></p>
+  <h3><%= link_to proposal.project.title, project_path(proposal.project) %></h3>
+  <p>Razão para trabalhar nesse projeto: <%= proposal.reason %></p>
+  <p>Proposta de valor/hora: R$ <%= proposal.value %></p>
+  <p>Horas disponíveis por semana: <%= proposal.available_time %> horas</p>
+  <p>Expectativa de conclusão do projeto: <%= proposal.expected_end %></p>
   <hr>
 <% end %> 
