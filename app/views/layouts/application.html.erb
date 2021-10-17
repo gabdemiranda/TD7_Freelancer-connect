@@ -11,22 +11,24 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
       <% if regular_user_signed_in? %>
-        <%= link_to 'Cadastrar projeto', new_project_path %> |
-        <%= current_regular_user.email %> |
-        <%= link_to 'Logout', destroy_regular_user_session_path, method: :delete %> |
-        <%= link_to 'Meus projetos', my_projects_projects_path %>
+        <%= current_regular_user.email %> 
+        <%= link_to 'Cadastrar projeto', new_project_path, class: "btn btn-secondary" %> 
+        <%= link_to 'Logout', destroy_regular_user_session_path, class: "btn btn-secondary", method: :delete %> 
+        <%= link_to 'Meus projetos', my_projects_projects_path, class: "btn btn-secondary" %>
       <% elsif freelancer_user_signed_in? %>
-          <%= current_freelancer_user.email %> |
-          <%= link_to "Meu perfil",  show_profile_path unless current_freelancer_user.profile.nil? %> 
-          <%= link_to "Complete seu perfil",  new_profile_path unless current_freelancer_user.profile %> |
-          <%= link_to "Logout", destroy_freelancer_user_session_path, method: :delete %> |
-          <%= link_to 'Minhas propostas', proposals_path %>
+          <%= current_freelancer_user.email %> 
+          <%= link_to "Meu perfil",  show_profile_path, class: "btn btn-secondary" unless current_freelancer_user.profile.nil? %> 
+          <%= link_to "Complete seu perfil",  new_profile_path, class: "btn btn-secondary" unless current_freelancer_user.profile %> 
+          <%= link_to 'Minhas propostas', proposals_path, class: "btn btn-secondary" %>
+          <%= link_to "Logout", destroy_freelancer_user_session_path, class: "btn btn-secondary", method: :delete %> 
       <% else %>
-        <%= link_to "Entrar como usuário", new_regular_user_session_path %> |
-        <%= link_to "Entrar como freelancer", new_freelancer_user_session_path %> |
+        <%= link_to "Entrar como usuário", new_regular_user_session_path, class: "btn btn-secondary" %>
+        <%= link_to "Entrar como freelancer", new_freelancer_user_session_path, class: "btn btn-secondary" %>
       <% end %>
+      </div>
     </nav>
   <%= render 'layouts/alerts' %>
     <%= yield %>

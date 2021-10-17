@@ -1,14 +1,27 @@
 <% if @project.errors.any? %>
-
     <% @project.errors.full_messages.each do |error| %>
     <div><%= error %></div>
     <% end %> 
+<% end %> 
 
-<% end %> <%= form_with(model: @project) do |f| %>
-<%= f.label :title %> <%= f.text_field :title %>
-<%= f.label :description %> <%= f.text_field :description %>
-<%= f.label :skills %> <%= f.text_field :skills %>
-<%= f.label :value %> <%= f.number_field :value %>
-<%= f.label :end_date %> <%= f.date_field :end_date %>
-<%= f.label :work_style %> <%= f.text_field :work_style %>
-<%= f.submit 'Enviar' %> <% end %>
+<%= form_with(model: @project) do |f| %>
+<div>
+    <%= f.label :title %> <%= f.text_field :title %>
+</div>
+<div>
+    <%= f.label :description %> <%= f.text_field :description %>
+</div>
+<div>
+    <%= f.label :skills %> <%= f.text_field :skills %>
+</div>
+<div>
+    <%= f.label :value %> <%= f.number_field :value %>
+</div>
+<div>
+    <%= f.label :end_date %> <%= f.date_field :end_date %>
+</div>
+<div>
+    <%= f.label :work_style %> <%= f.text_field :work_style %>
+</div>
+    <%= f.submit 'Enviar' %> 
+<% end %>

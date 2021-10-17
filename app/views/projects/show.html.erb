@@ -16,8 +16,8 @@
     <p>Expectativa de conclusão do projeto: <%= proposal.expected_end %></p>
     <p>Status: <%= I18n.t(proposal.status) %></p>
     <% if proposal.pending? %>
-      <%= link_to 'Aceitar proposta', accept_proposal_path(proposal.id), method: :post %>
-      <%= link_to 'Rejeitar proposta', reject_proposal_path(proposal.id), method: :post %>
+      <%= button_to 'Aceitar proposta', accept_proposal_path(proposal.id), method: :post, class: "btn btn-success" %>
+      <%= button_to 'Rejeitar proposta', reject_proposal_path(proposal.id), method: :post, class: "btn btn-danger" %>
     <% end %>
     <hr>
   <% end %>
