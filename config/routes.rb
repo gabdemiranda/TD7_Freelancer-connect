@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'search', to: "home#search"
   get 'show_profile', to: 'profiles#show_profile'
   resources :projects, only: [:show, :new, :create] do 
+    post 'close', on: :member
     get 'my_projects', on: :collection
     resources :proposals, only: [:show, :new, :create], shallow: true do
       post 'accept', on: :member

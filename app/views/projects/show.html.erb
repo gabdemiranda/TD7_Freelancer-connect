@@ -4,12 +4,19 @@
 <p>Data limite: <%= @project.end_date %></p>
 <p>Atuação <%= @project.work_style %></p>
 <p>Valor máximo por hora: R$ <%= @project.value %> reais</p>
+<%if regular_user_signed_in? && @project.regular_user == current_regular_user %>
+  <% if @project.open? %>
+    <%= button_to 'Finalizar projeto', close_project_path(@project.id), method: :post, class: "btn btn-danger" %>
+  <% elsif @project.closed? %>
+    <p>Projeto finalizado!</p>
+  <% end %>
+<% end %>
 <hr>
-<%if regular_user_signed_in? && @project.regular_user == current_regular_user%>
+<%if regular_user_signed_in? && @project.regular_user == current_regular_user %>
   <h3>Propostas:</h3>
   <hr>
   <% @project.proposals.each do |proposal| %>
-    <h4>Proposta de <%= link_to proposal.freelancer_user.profile.socialname, show_profile_path(proposal.freelancer_user.profile) %></h4>
+    <h4>Proposta de <%= link_to proposal.freelancer_user.profile.socialname, show_profile_path(proposal.id) %></h4>
     <p>Razão para trabalhar nesse projeto: <%= proposal.reason %></p>
     <p>Proposta de valor/hora: R$ <%= proposal.value %></p>
     <p>Horas disponíveis por semana: <%= proposal.available_time %> horas</p>
@@ -23,5 +30,5 @@
   <% end %>
 <% end %>
 <%= link_to('Voltar', root_path) %> 
-<%= link_to('Fazer proposta', new_project_proposal_path(@project)) if freelancer_user_signed_in? && current_freelancer_user.profile %>
-<%= link_to('Complete seu perfil para fazer propostas', new_profile_path) if freelancer_user_signed_in? && current_freelancer_user.profile.nil? %>
+<%= link_to('Fazer proposta', new_project_proposal_path(@project)) if freelancer_user_signed_in? && current_freelancer_user.profile && @project.open? %>
+<%= link_to('Complete seu perfil para fazer propostas', new_profile_path) if freelancer_user_signed_in? && current_freelancer_user.profile.nil? && @project.open? %>

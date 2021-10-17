@@ -21,6 +21,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def close
+    @project = Project.find(params[:id])
+    @project.closed!
+    redirect_to @project
+  end
+
+  private
+
   def project_params 
     params.require(:project).permit(:title, :description, :skills, :value, :end_date, :work_style )
   end

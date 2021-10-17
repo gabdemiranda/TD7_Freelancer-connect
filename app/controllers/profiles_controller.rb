@@ -1,6 +1,11 @@
 class ProfilesController < ApplicationController
   def show_profile
-    @profile = Profile.find(current_freelancer_user[:id])
+    if freelancer_user_signed_in?
+      @profile = Profile.find(current_freelancer_user[:id])
+    else
+      @proposal = Proposal.find(params[:id])
+      @profile = @proposal.freelancer_user.profile
+    end
   end
 
   def new
