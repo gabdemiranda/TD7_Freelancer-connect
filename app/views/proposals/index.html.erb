@@ -11,5 +11,6 @@
   <p>Proposta de valor/hora: R$ <%= proposal.value %></p>
   <p>Horas disponíveis por semana: <%= proposal.available_time %> horas</p>
   <p>Expectativa de conclusão do projeto: <%= proposal.expected_end %></p>
+  <p>Status: <%= I18n.t(proposal.status) %></p>
   <hr>
 <% end %> 

@@ -14,6 +14,11 @@
     <p>Proposta de valor/hora: R$ <%= proposal.value %></p>
     <p>Horas disponíveis por semana: <%= proposal.available_time %> horas</p>
     <p>Expectativa de conclusão do projeto: <%= proposal.expected_end %></p>
+    <p>Status: <%= I18n.t(proposal.status) %></p>
+    <% if proposal.pending? %>
+      <%= link_to 'Aceitar proposta', accept_proposal_path(proposal.id), method: :post %>
+      <%= link_to 'Rejeitar proposta', reject_proposal_path(proposal.id), method: :post %>
+    <% end %>
     <hr>
   <% end %>
 <% end %>

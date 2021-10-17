@@ -1,0 +1,8 @@
+---
+pt-BR:
+  pending: 'Pendente'
+  accepted: 'Aprovada'
+  rejected: 'Rejeitada'
+  activerecord:
+    models:
+      proposal: 'Proposta'

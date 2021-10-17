@@ -4,4 +4,5 @@
 <p>Horas disponíveis por semana: <%= @proposal.available_time %></p>
 <p>Atuação <%= @proposal.expected_end %></p>
 <p>Expectativa de conclusão do projeto: R$ <%= @proposal.value %></p>
+<p>Status: <%= I18n.t(@proposal.status) %></p>
 <%= link_to('Voltar', root_path) %>
