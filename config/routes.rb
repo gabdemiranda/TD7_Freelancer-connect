@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'close', on: :member
     get 'my_projects', on: :collection
     resources :proposals, only: [:show, :new, :create], shallow: true do
+      resources :freelancer_feedbacks, only: %i[create show], shallow: true
       post 'accept', on: :member
       post 'reject', on: :member
     end

@@ -25,6 +25,12 @@
     <% if proposal.pending? %>
       <%= button_to 'Aceitar proposta', accept_proposal_path(proposal.id), method: :post, class: "btn btn-success" %>
       <%= button_to 'Rejeitar proposta', reject_proposal_path(proposal.id), method: :post, class: "btn btn-danger" %>
+    <% elsif proposal.accepted? && @project.closed? %>
+      <%= form_with model: [proposal, @freelancer_feedback] do |feedback| %>
+        <%= feedback.label :feedback, 'Deixe um feedback' %>
+        <%= feedback.text_field :feedback %>
+        <%= feedback.submit 'Enviar feedback' %>
+      <% end %>
     <% end %>
     <hr>
   <% end %>

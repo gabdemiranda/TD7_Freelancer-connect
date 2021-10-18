@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
+    @freelancer_feedback = FreelancerFeedback.new
   end
 
   def my_projects
