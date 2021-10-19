@@ -1,20 +1,20 @@
-<h1>Freelancer Connect</h1>
-<h3>Contrate o melhor profissional para sua necessidade!</h3>
+<h1><%= t('.title') %></h1>
+<h3><%= t('.description') %></h3>
 
 <hr>
 
 <% if freelancer_user_signed_in? %>
   <%= form_with url: search_path, method: :get do %>
-    <%= label_tag :q, 'Pesquisar projetos:' %>
+    <%= label_tag :q, t('.searchprojects') %>
     <%= text_field_tag :q %>
-    <%= submit_tag 'Pesquisar' %>
+    <%= submit_tag t('.search') %>
   <% end %>
   <hr>
 <% end %>
 
-<h2>Projetos Disponíveis:</h2>
+<h2><%= t('.available_projects') %></h2>
 <% if @projects.empty? %>
-  <h3><%= "Nenhum projeto disponível" %></h3>
+  <h3><%= t('.no_projects') %></h3>
 <% else %>
   <%= render "partial_shared/preview", project: @projects%>
 <% end %>

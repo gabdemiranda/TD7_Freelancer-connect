@@ -11,3 +11,8 @@ pt-BR:
         education: 'Formação'
         description: 'Descrição'
         experience: 'Experiência'
+  profiles:
+    show_profile:
+      title: 'Meu perfil'
+    new:
+      send: 'Enviar'

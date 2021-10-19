@@ -1,4 +1,6 @@
-<h1><%= @profile.fullname %></h1>
+<h1> <%= t '.title' %>
+<hr>
+<h2><%= @profile.fullname %></h2>
 <h3><%= "#{@profile.class.human_attribute_name(:socialname)}: #{@profile.socialname}" %></h3>
 <h3><%= "#{@profile.class.human_attribute_name(:birthdate)}: #{(@profile.birthdate)}" %></h3>
 <h3><%= "#{@profile.class.human_attribute_name(:education)}: #{@profile.education}" %></h3>

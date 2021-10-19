@@ -1,0 +1,23 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      project: 'Projeto'
+    attributes:
+      project:
+        title: 'Título'
+        description: 'Descrição'
+        skills: 'Habilidades desejadas'
+        value: 'Valor máximo por hora'
+        end_date: 'Data limite'
+        work_style: 'Atuação'
+  projects:
+    show:
+      end_project: 'Finalizar projeto'
+      ended_project: 'Projeto finalizado!'
+      do_proposal: 'Fazer proposta'
+      back: 'Voltar'
+      fill_profile: 'Complete seu perfil para fazer propostas'
+    my_projects:
+      my_projects: 'Meus Projetos'
+      empty: 'Nenhum projeto enviado.'

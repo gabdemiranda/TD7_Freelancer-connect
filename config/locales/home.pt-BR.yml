@@ -1,0 +1,13 @@
+---
+pt-BR:
+  home:
+    index:
+      title: 'Freelancer Connect'
+      description: 'Contrate o melhor profissional para sua necessidade!'
+      searchprojects: 'Pesquisar projetos:'
+      search: 'Pesquisar'
+      no_projects: "Nenhum projeto disponível"
+      available_projects: 'Projetos Disponíveis:'
+    search:
+      results: 'Resultados da pesquisa:'
+      back: 'Voltar'

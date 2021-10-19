@@ -1,8 +1,8 @@
-<h1>Meus Projetos</h1>
+<h1><%= t('.my_projects') %></h1>
 <hr>
 <% if @projects.empty? %>
     <div>
-        <h3>Nenhum projeto enviado.</h3><br>
+        <h3><%= t('.empty') %></h3><br>
     </div>
 <% end %>
 <% @projects.each do |project|%>
