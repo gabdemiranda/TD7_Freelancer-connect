@@ -18,7 +18,7 @@ describe "Visitor visits homepage" do
                     value: 50,
                     end_date: '10/11/2021',
                     work_style: 'Remota',
-                    regular_user_id: 1
+                    regular_user: regular_user
                     })
 
     visit root_path
@@ -44,7 +44,7 @@ describe "Visitor visits homepage" do
       value: 50,
       end_date: '10/11/2021',
       work_style: 'Remota',
-      regular_user_id: 1
+      regular_user: regular_user
       })
 
     visit root_path
@@ -66,7 +66,7 @@ describe "Visitor visits homepage" do
       value: 50,
       end_date: '10/11/2021',
       work_style: 'Remota',
-      regular_user_id: 1
+      regular_user: regular_user
       })
 
     visit root_path

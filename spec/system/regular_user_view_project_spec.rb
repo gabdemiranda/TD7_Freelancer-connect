@@ -9,7 +9,7 @@ describe 'as a regular user I can' do
       value: 50,
       end_date: '10/11/2021',
       work_style: 'Remota',
-      regular_user_id: 1
+      regular_user: regular_user
       }) 
 
     login_as regular_user, scope: :regular_user
@@ -35,7 +35,7 @@ describe 'as a regular user I can' do
         value: 50,
         end_date: '10/11/2021',
         work_style: 'Remota',
-        regular_user_id: 1
+        regular_user: regular_user
       )  
 
       login_as regular_user, scope: :regular_user
@@ -54,7 +54,7 @@ describe 'as a regular user I can' do
         value: 50,
         end_date: '10/11/2021',
         work_style: 'Remota',
-        regular_user_id: 1
+        regular_user: regular_user
       )
       
       login_as regular_user, scope: :regular_user
@@ -74,7 +74,7 @@ describe 'as a regular user I can' do
       value: 50,
       end_date: '10/11/2021',
       work_style: 'Remota',
-      regular_user_id: 1
+      regular_user: regular_user
     )
     Project.create!( 
       title: 'Blog de fofoca',
@@ -83,7 +83,7 @@ describe 'as a regular user I can' do
       value: 40,
       end_date: '12/12/2021',
       work_style: 'Presencial',
-      regular_user_id: 2
+      regular_user: regular_user2
     )
     
     login_as regular_user, scope: :regular_user
@@ -110,7 +110,7 @@ describe 'as a regular user I can' do
       value: 40,
       end_date: '12/12/2021',
       work_style: 'Presencial',
-      regular_user_id: 2
+      regular_user: regular_user2
     )
     
     login_as regular_user, scope: :regular_user

@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_10_17_211829) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "freelancer_feedbacks", force: :cascade do |t|
     t.string "feedback"
     t.datetime "created_at", precision: 6, null: false

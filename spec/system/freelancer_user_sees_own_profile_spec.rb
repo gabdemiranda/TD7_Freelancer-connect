@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Freelancer user sees profile page' do
   it 'from menu' do
     freelanceruser = FreelancerUser.create!(email: 'teste@freelancer.com.br', password: '15s885')
-    profile = Profile.create!(freelancer_user_id: freelanceruser.id, fullname: 'Gabriela Martins', socialname: 'Fernando Martins',
+    profile = Profile.create!(freelancer_user: freelanceruser, fullname: 'Gabriela Martins', socialname: 'Fernando Martins',
                              description: 'Fullstack dev', education: 'Formado em sistemas de informação',
                              birthdate: '14/06/1996', experience: 'Três anos trabalhando na Rebase'
                              )

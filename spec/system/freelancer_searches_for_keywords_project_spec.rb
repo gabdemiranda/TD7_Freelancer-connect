@@ -10,7 +10,7 @@ describe "freelancer searches for keywords" do
       value: 50,
       end_date: '10/11/2021',
       work_style: 'Remota', 
-      regular_user_id: 1
+      regular_user: regularuser
       })
     Project.create!({ title: 'Aplicação para celular',
       description: 'Preciso de uma aplicação para gerenciar meus alunos de academia',
@@ -18,7 +18,7 @@ describe "freelancer searches for keywords" do
       value: 30,
       end_date: '10/12/2021',
       work_style: 'Presencial',
-      regular_user_id: 1
+      regular_user: regularuser
       })
     
 
