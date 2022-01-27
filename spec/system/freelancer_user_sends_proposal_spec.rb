@@ -9,7 +9,7 @@ describe 'as a Freelancer I can' do
       value: 50,
       end_date: '10/11/2021',
       work_style: 'Remota',
-      regular_user_id: 1
+      regular_user: regularuser
       })
     freelancer_user = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')  
     profile = Profile.create!(freelancer_user_id: freelancer_user.id, 
@@ -46,7 +46,7 @@ describe 'as a Freelancer I can' do
       value: 50,
       end_date: '10/11/2021',
       work_style: 'Remota',
-      regular_user_id: 1
+      regular_user: regularuser
       })
     freelancer_user = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')  
 
@@ -70,7 +70,7 @@ describe 'as a Freelancer I can' do
       value: 50,
       end_date: '10/11/2021',
       work_style: 'Remota',
-      regular_user_id: 1,
+      regular_user: regularuser,
       status: 10
       })
     freelancer_user = FreelancerUser.create!(email: 'freelancer@teste.com.br', password: '1234tyy')  

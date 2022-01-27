@@ -15,5 +15,11 @@ Rails.application.routes.draw do
     end
   end
   resources :proposals, only: [:index]
-  resources :profiles, only: [:show, :new, :create] 
+  resources :profiles, only: [:show, :new, :create]
+  
+  namespace :api do
+    namespace :v1 do
+      resources :projects, only: %i[index]
+    end
+  end
 end
