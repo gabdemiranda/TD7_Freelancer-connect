@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
   devise_for :views
   devise_for :freelancer_users
   devise_for :regular_users
   root to: 'home#index'
+  mount Sidekiq::Web => '/sidekiq'
   get 'search', to: "home#search"
   get 'show_profile', to: 'profiles#show_profile'
   resources :projects, only: [:show, :new, :create] do 

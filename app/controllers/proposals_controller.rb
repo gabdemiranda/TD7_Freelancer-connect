@@ -17,6 +17,7 @@ class ProposalsController < ApplicationController
     @proposal.freelancer_user = current_freelancer_user
     @proposal.project = Project.find(params[:project_id])
     if @proposal.save
+      MailDeliveryJob.perform_later(@proposal.id)
       redirect_to @proposal, notice: 'Proposta realizada com sucesso!'
     else
       render :new
