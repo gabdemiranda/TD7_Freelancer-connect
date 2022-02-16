@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :projects, only: %i[index]
+      resources :api_users, only: %i[create]
+      post '/login', to: "api_users#login"
+      get '/auto_login', to: "api_users#auto_login"
     end
   end
 end

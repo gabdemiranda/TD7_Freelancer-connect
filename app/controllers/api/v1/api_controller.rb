@@ -1,11 +1,46 @@
-# frozen_string_literal: true
-
 module Api
   module V1
     class ApiController < ActionController::API
       rescue_from ActiveRecord::ActiveRecordError, with: :render_generic_error
       rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
       ActiveRecord::Base.include_root_in_json = true
+      before_action :authorized
+
+      def encode_token(payload)
+        JWT.encode(payload, 's3cr3t')
+      end
+
+      def auth_header
+        # { Authorization: 'Bearer <token>' }
+        request.headers['Authorization']
+      end
+
+      def decoded_token
+        if auth_header
+          token = auth_header.split(' ')[1]
+          # header: { 'Authorization': 'Bearer <token>' }
+          begin
+            JWT.decode(token, 's3cr3t', true, algorithm: 'HS256')
+          rescue JWT::DecodeError
+            nil
+          end
+        end
+      end
+
+      def logged_in_api_user
+        if decoded_token
+          api_user_id = decoded_token[0]['api_user_id']
+          @api_user = ApiUser.find_by(id: api_user_id)
+        end
+      end
+
+      def logged_in?
+        !!logged_in_api_user
+      end
+
+      def authorized
+        render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+      end
 
       private
 
