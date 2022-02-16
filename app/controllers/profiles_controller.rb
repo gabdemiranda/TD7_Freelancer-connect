@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   def show_profile
     if freelancer_user_signed_in?

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProposalsController < ApplicationController
   def index
     @proposals = Proposal.where(freelancer_user: current_freelancer_user)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
@@ -30,8 +32,7 @@ class ProjectsController < ApplicationController
 
   private
 
-  def project_params 
-    params.require(:project).permit(:title, :description, :skills, :value, :end_date, :work_style )
+  def project_params
+    params.require(:project).permit(:title, :description, :skills, :value, :end_date, :work_style)
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FreelancerFeedbacksController < ApplicationController
   def show
     @freelancer_feedback = FreelancerFeedback.find(params[:id])

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Project < ApplicationRecord
   belongs_to :regular_user
   has_many :proposals, dependent: :destroy

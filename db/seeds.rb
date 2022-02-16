@@ -1,4 +1,5 @@
-#Project.create!({ title: 'Site para cadastro de imóveis',
+# frozen_string_literal: true
+# Project.create!({ title: 'Site para cadastro de imóveis',
 #  description: 'Preciso de um site que cadastre imóveis de vários tipos e em várias locações',
 #  skills: 'Ruby on Rails',
 #  value: 50,

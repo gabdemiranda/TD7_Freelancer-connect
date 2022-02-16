@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Projects exportation API' do
@@ -10,7 +12,7 @@ describe 'Projects exportation API' do
                                   value: 50,
                                   end_date: '10/11/2021',
                                   work_style: 'Remota',
-                                  regular_user: user, 
+                                  regular_user: user,
                                   status: 5)
       @project2 = Project.create!(title: 'Netflix',
                                   description: 'Uma aplicação para streaming de vídeos',
@@ -18,7 +20,7 @@ describe 'Projects exportation API' do
                                   value: 50,
                                   end_date: '10/11/2021',
                                   work_style: 'Remota',
-                                  regular_user: user, 
+                                  regular_user: user,
                                   status: 5)
       @project3 = Project.create!(title: 'Bar.com',
                                   description: 'Uma aplicação para streaming de vídeos',
@@ -26,7 +28,7 @@ describe 'Projects exportation API' do
                                   value: 50,
                                   end_date: '10/11/2021',
                                   work_style: 'Remota',
-                                  regular_user: user, 
+                                  regular_user: user,
                                   status: 10)
 
       get '/api/v1/projects'
@@ -39,4 +41,4 @@ describe 'Projects exportation API' do
       expect(projects.size).to eq(2)
     end
   end
-end 
+end
